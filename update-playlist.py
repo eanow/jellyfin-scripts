@@ -50,7 +50,7 @@ for entry in playlist_entries:
             outfile.write('<thumb aspect="landscape">'+videojson['id']+".png"+'</thumb>')
             outfile.write('</episodedetails>\n')
             outfile.close()
-archive_file=os.path.join(args.publish,videojson["id"]+".archive")
+archive_file=os.path.join(args.publish,"downloaded.archive")
 #download the videos
-get_video_process=subprocess.run([args.bin,"-o",args.publish+'/%(id)s.%(ext)s',"--download-archive",archive_file,"--convert-thumbnails","png","--write-thumbnail","--dateafter","20230601",args.playlist]) 
+get_video_process=subprocess.run([args.bin,"-o",args.publish+'/%(id)s.%(ext)s',"--download-archive",archive_file,"-f","137+140","--convert-thumbnails","png","--write-thumbnail","--dateafter","20230601",args.playlist]) 
  #   print(entry[0:40])
